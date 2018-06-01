@@ -1,0 +1,10 @@
+<h2> WE ARE HERO </h2>
+<h3>当前登录用户: {{ name }}</h3>
+<span>
+    登录：<a href="{% url 'app:login' %}">     login</a>
+    注册：<a href="{% url 'app:signup' %}">       signup</a>
+    {% if login_is == True %}
+        注销：<a href="{% url 'app:logout' %}">      logout</a>
+    {% endif %}
+</span>
+<hr></hr>

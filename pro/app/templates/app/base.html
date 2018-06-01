@@ -1,0 +1,14 @@
+<html>
+<head>
+<title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+{% include 'app/header.html' %}
+
+{% block content %}{% endblock %}
+
+{% include 'app/footer.html' %}
+
+</body>
+</html>

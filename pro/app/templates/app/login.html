@@ -1,0 +1,30 @@
+{% extends "app/base.html" %}
+
+{% block title %}
+{{ title }}
+
+{% endblock %}
+
+{% block content %}
+<p style="color: red">{{ error_msg }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  <table>
+  {{ form }}
+  <tr><td></td><td><img id='captcha' src="{% url 'app:captcha' %}"></td></tr>
+  </table>
+  <input type="submit" value="登入">
+</form>
+
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script>
+function reload_img() {
+  $('#captcha').attr('src', "/app/captcha/" + String(Math.random()));
+}
+$(document).ready(function() {
+    $('#captcha').click(reload_img);
+});
+</script>
+{% endblock %}
+

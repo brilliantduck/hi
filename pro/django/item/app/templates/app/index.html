@@ -1,0 +1,26 @@
+{% extends "app/base.html" %}
+
+{% block title %}
+{{ title }}
+
+{% endblock %}
+
+{% block content %}
+{{ hello }}
+</span>
+<form enctype="multipart/form-data" action="{% url 'app:upload' %}" method="post">
+{% csrf_token %}
+    <input type="file" name="myfile" />
+    <br>
+    <input type="submit" value="upload" />
+    {{ erorr }}
+</form>
+
+<ul>
+    {% for file in data %}
+    <li><a href="{% url 'app:detail' file.pk %}">{{ file.filename }}</a></li>
+    {% endfor %}
+</ul>
+<a href="{% url 'app:page' page=2 %}"<button>下一页</button></a>
+{% endblock %}
+

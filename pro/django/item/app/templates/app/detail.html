@@ -1,0 +1,24 @@
+{% extends "app/base.html" %}
+
+{% block title %}
+{{ title }}
+
+{% endblock %}
+
+{% block content %}
+{{ hello }}
+</span>
+<ul>
+<li>{{ data.filename }}</li>
+<li>{{ data.owner }}</li>
+<li>{{ data.size }}</li>
+<li>{{ data.status }}</li>
+<li>{{ data.path }}</li>
+<li>{{ data.md5 }}</li>
+<li>{{ data.upload }}</li>
+</ul>
+<a href="{% url 'app:download' data.pk %}"><button>Download</button></a>
+    {{ erorr }}
+
+{% endblock %}
+

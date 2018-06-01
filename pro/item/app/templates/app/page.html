@@ -1,0 +1,24 @@
+{% extends "app/base.html" %}
+
+{% block title %}
+{{ title }}
+
+{% endblock %}
+
+{% block content %}
+{{ hello }}
+</span>
+{{ error_msg }}
+<ul>
+    {% for file in data %}
+    <li><a href="{% url 'app:detail' file.pk %}">{{ file.filename }}</a></li>
+    {% endfor %}
+</ul>
+{% if fis_page %}
+<a href="{% url 'app:page' upper %}"><button>上一页</button></a>
+{% endif %}
+{% if las_page %}
+<a href="{% url 'app:page' lower %}"><button>下一页</button></a>
+{% endif %}
+{% endblock %}
+
